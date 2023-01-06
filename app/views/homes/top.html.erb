@@ -1,7 +1,16 @@
-<h1>welcome to Bookers!!</h1>
-<p>In Bookers,</p>
-<br>
-<p>you can share and exchange your opinions, inpressions,</p>
-<p>and emotions</p>
-<br>
-<p>about various books!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h1>welcome to Bookers!!</h1>
+      <p>In Bookers,</p>
+      <br>
+      <p>you can share and exchange your opinions, inpressions,</p>
+      <p>and emotions</p>
+      <br>
+      <p>about various books!</p>
+
+      <p><%= link_to "Log in", new_user_session_path %></p>
+      <p><%= link_to "Sign in", new_user_registration_path %></p>
+    </div>
+  </div>
+</div>
