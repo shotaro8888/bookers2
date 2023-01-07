@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Bookers2</title>
+    <script src="https://kit.fontawesome.com/8f703b772e.js" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" >
@@ -16,32 +17,32 @@
           <%= link_to "Bookers", root_path %>
         </li>
         <li>
-          <%= link_to "Home", user_path(current_user.id) %>
+          <i class="fas fa-home"></i> <%= link_to "Home", user_path(current_user.id) %>
         </li>
         <li>
-          <%= link_to "Users", '/users' %>
+          <i class="fas fa-users"></i> <%= link_to "Users", '/users' %>
         </li>
         <li>
-          <%= link_to "Books", '/books' %>
+          <i class="fas fa-book-open"></i> <%= link_to "Books", '/books' %>
         </li>
         <li>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          <i class="fas fa-sign-out-alt"></i> <%= link_to "Log out", destroy_user_session_path, method: :delete %>
         </li>
       <% else %>
         <li>
           <%= link_to "Bookers", root_path %>
         </li>
         <li>
-          <%= link_to "Home", root_path %>
+          <i class="fas fa-home"></i> <%= link_to "Home", root_path %>
         </li>
         <li>
-          <%= link_to "About", '/homes/about' %>
+          <i class="fas fa-link"></i> <%= link_to "About", about_path %>
         </li>
         <li>
-          <%= link_to "Sign up", new_user_registration_path %>
+          <i class="fas fa-user-plus"></i> <%= link_to "Sign up", new_user_registration_path %>
         </li>
         <li>
-          <%= link_to "Log in", new_user_session_path %>
+          <i class="fas fa-sign-in-alt"></i> <%= link_to "Log in", new_user_session_path %>
         </li>
       <% end %>
     </header>
