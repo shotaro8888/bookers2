@@ -10,47 +10,78 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="d-flex flex-column vh-100">
+  <body>
     <header>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to "Bookers", root_path %>
-        </li>
-        <li>
-          <i class="fas fa-home"></i> <%= link_to "Home", user_path(current_user.id) %>
-        </li>
-        <li>
-          <i class="fas fa-users"></i> <%= link_to "Users", '/users' %>
-        </li>
-        <li>
-          <i class="fas fa-book-open"></i> <%= link_to "Books", '/books' %>
-        </li>
-        <li>
-          <i class="fas fa-sign-out-alt"></i> <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "Bookers", root_path %>
-        </li>
-        <li>
-          <i class="fas fa-home"></i> <%= link_to "Home", root_path %>
-        </li>
-        <li>
-          <i class="fas fa-link"></i> <%= link_to "About", about_path %>
-        </li>
-        <li>
-          <i class="fas fa-user-plus"></i> <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-        <li>
-          <i class="fas fa-sign-in-alt"></i> <%= link_to "Log in", new_user_session_path %>
-        </li>
-      <% end %>
+      <nav class="navbar navbar-dark bg-dark fixed-top">
+            <%= link_to(root_path, class: "text-light") do %>Bookers<% end %>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <% if user_signed_in? %>
+                <ul class="navbar-nav">
+
+                <li class="nav-item active">
+                  <%= link_to(user_path(current_user.id), class: "text-light") do %>
+                  <i class="fas fa-home"></i> Home
+                  <% end %>
+                </li>
+
+                <li class="nav-item">
+                  <%= link_to('/users', class: "text-light") do %>
+                  <i class="fas fa-users"></i> Users
+                  <% end %>
+                </li>
+
+                <li class="nav-item">
+                  <%= link_to('/books', class: "text-light") do %>
+                  <i class="fas fa-book-open"></i> Books
+                  <% end %>
+                </li>
+
+                <li class="nav-item">
+                  <%= link_to(destroy_user_session_path, method: :delete, class: "text-light") do %>
+                  <i class="fas fa-sign-out-alt"></i> Log out
+                  <% end %>
+                </li>
+
+                </ul>
+                <% else %>
+                <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <%= link_to(root_path, class: "text-light") do %>
+                  <i class="fas fa-home"></i> Home
+                  <% end %>
+                </li>
+
+                <li class="nav-item">
+                  <%= link_to(about_path, class: "text-light") do %>
+                  <i class="fas fa-link"></i> About
+                  <% end %>
+                </li>
+
+                <li class="nav-item">
+                  <%= link_to(new_user_registration_path, class: "text-light") do %>
+                  <i class="fas fa-user-plus"></i> Sign up
+                  <% end %>
+                </li>
+
+                <li class="nav-item">
+                  <%= link_to(new_user_session_path, class: "text-light") do %>
+                  <i class="fas fa-sign-in-alt"></i> Log in
+                  <% end %>
+                </li>
+
+                </ul>
+                <% end %>
+              </div>
+      </nav>
     </header>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
     <footer>
-      <p>CopyRight Infratop.inc</p>
+      <p class="text-center">CopyRight Infratop.inc</p>
     </footer>
   </body>
 </html>
